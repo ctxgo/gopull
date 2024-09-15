@@ -48,7 +48,7 @@
 
 ### 4)&emsp;Get image details
 ```
-  ./gopull inspect redis
+  ./gopull inspect docker://redis
 ```
 
 
