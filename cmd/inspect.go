@@ -50,9 +50,9 @@ Supported transports:
 See skopeo(1) section "IMAGE NAMES" for the expected format
 `, strings.Join(transports.ListNames(), ", ")),
 		RunE: commandAction(opts.run),
-		Example: `skopeo inspect docker://registry.fedoraproject.org/fedora
-skopeo inspect --config docker://docker.io/alpine
-skopeo inspect --format "Name: {{.Name}} Digest: {{.Digest}}" docker://registry.access.redhat.com/ubi8`,
+		Example: `gopull inspect registry.fedoraproject.org/fedora
+gopull inspect --config alpine
+gopull inspect --format "Name: {{.Name}} Digest: {{.Digest}}" docker://registry.access.redhat.com/ubi8`,
 		ValidArgsFunction: autocompleteSupportedTransports,
 	}
 	adjustUsage(cmd)
@@ -82,7 +82,7 @@ func (opts *inspectOptions) run(args []string, stdout io.Writer) (retErr error) 
 	if opts.raw && opts.format != "" {
 		return errors.New("raw output does not support format option")
 	}
-	imageName := args[0]
+	imageName := "docker://" + args[0]
 
 	sys, err := opts.image.newSystemContext()
 	if err != nil {

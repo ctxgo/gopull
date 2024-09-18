@@ -24,7 +24,7 @@ func logoutCmd(global *globalOptions) *cobra.Command {
 		Short:   "Logout of a container registry",
 		Long:    "Logout of a container registry on a specified server.",
 		RunE:    commandAction(opts.run),
-		Example: `skopeo logout quay.io`,
+		Example: `gopull logout docker.io`,
 	}
 	adjustUsage(cmd)
 	flags := cmd.Flags()

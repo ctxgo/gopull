@@ -30,29 +30,17 @@
 
 <br>
 
-### 2)&emsp;Pull docker images and generate a tar archive on a machine without docker
+### 2)&emsp;下载镜像到tar文件
 ```
   ./gopull download redis
 ```
   
-### 3)&emsp;Pull docker images whith Digest
+### 3)&emsp;下载Digest格式镜像到tar文件(需要指定 -t 参数)
 ```
   ./gopull download sha256:c35af3bbcef51a62c8bae5a9a563c6f1b60d7ebaea4cb5a3ccbcc157580ae098 -t redis:custom_tag
 ```
 
-### 4)&emsp;login | logout
-```
-  ./gopull login docker.io 
-  ./gopull logout
-```
-
-### 4)&emsp;Get image details
-```
-  ./gopull inspect docker://redis
-```
-
-
-### 6)&emsp; Import the downloaded image
+### 4)&emsp; 导入下载的tar镜像
 ```
   # docker导入
   docker load -i redis.tar
@@ -60,5 +48,30 @@
   # ctr导入
   ctr image import redis.tar
 ```
+
+
+### 2)&emsp;拉取镜像到docker
+```
+  ./gopull pull redis
+```
+
+### 3)&emsp;拉取Digest格式镜像到docker(需要指定 -t 参数)
+```
+  ./gopull pull sha256:c35af3bbcef51a62c8bae5a9a563c6f1b60d7ebaea4cb5a3ccbcc157580ae098 -t redis:custom_tag
+```
+
+### 4)&emsp;login | logout
+```
+  ./gopull login docker.io 
+  ./gopull logout docker.io
+```
+
+### 4)&emsp;获取镜像详情
+```
+  ./gopull inspect redis
+```
+
+
+
 
 

@@ -65,6 +65,7 @@ func createApp() (*cobra.Command, *globalOptions) {
 	flag.Hidden = true
 	rootCommand.AddCommand(
 		download(&opts),
+		pull(&opts),
 		inspectCmd(&opts),
 		loginCmd(&opts),
 		logoutCmd(&opts),
