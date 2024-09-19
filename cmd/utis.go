@@ -252,10 +252,10 @@ func getDestTagFormImageStruct(data image.ImageStruct) string {
 	if data.Tag != "" {
 		tag = data.Tag
 	}
-	if data.Registry == "docker.io" {
-		return fmt.Sprintf("%s:%s", data.Name, tag)
-	}
-	return fmt.Sprintf("%s%s:%s", data.Registry, data.Repository, tag)
+	// if data.Registry == "docker.io" {
+	// 	return fmt.Sprintf("%s:%s", data.Repository, tag)
+	// }
+	return fmt.Sprintf("%s/%s:%s", data.Registry, data.Repository, tag)
 
 }
 
