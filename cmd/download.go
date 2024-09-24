@@ -27,11 +27,13 @@ func download(global *globalOptions) *cobra.Command {
 	retryFlags, retryOpts := retryFlags()
 	opts := downloadOptions{
 		pullOptions: &pullOptions{
-			global:              global,
-			deprecatedTLSVerify: deprecatedTLSVerifyOpt,
-			srcImage:            srcOpts,
-			destImage:           destOpts,
-			retryOpts:           retryOpts,
+			copyOptions: &copyOptions{
+				global:              global,
+				deprecatedTLSVerify: deprecatedTLSVerifyOpt,
+				srcImage:            srcOpts,
+				destImage:           destOpts,
+				retryOpts:           retryOpts,
+			},
 		},
 	}
 	cmd := &cobra.Command{
@@ -63,7 +65,7 @@ See skopeo(1) section "IMAGE NAMES" for the expected format
 }
 
 func (opts *downloadOptions) run(args []string, stdout io.Writer) error {
-	return opts.pullOptions.execCopy(args, stdout, opts.buildDestRef)
+	return opts.pullOptions.execCopy(args, stdout, opts.buildSrcRef, opts.buildDestRef)
 }
 
 func (opts *downloadOptions) buildDestRef(imageName string) (types.ImageReference, *types.SystemContext, error) {

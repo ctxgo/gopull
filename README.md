@@ -50,23 +50,33 @@
 ```
 
 
-### 2)&emsp;拉取镜像到docker
+### 5)&emsp;拉取镜像到docker
 ```
   ./gopull pull redis
 ```
 
-### 3)&emsp;拉取Digest格式镜像到docker(需要指定 -t 参数)
+### 6)&emsp;拉取Digest格式镜像到docker(需要指定 -t 参数)
 ```
   ./gopull pull sha256:c35af3bbcef51a62c8bae5a9a563c6f1b60d7ebaea4cb5a3ccbcc157580ae098 -t redis:custom_tag
 ```
 
-### 4)&emsp;login | logout
+### 7)&emsp;推送镜像到镜像仓库
+```
+  ./gopull push redis 
+```
+
+### 8)&emsp;推送镜像到镜像仓库并重名
+```
+  ./gopull push redis  -t your_registry/your_repository:your_tag
+```
+
+### 9)&emsp;login | logout
 ```
   ./gopull login docker.io 
   ./gopull logout docker.io
 ```
 
-### 4)&emsp;获取镜像详情
+### 10)&emsp;获取镜像详情
 ```
   ./gopull inspect redis
 ```

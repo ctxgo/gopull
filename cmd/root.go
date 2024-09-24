@@ -66,6 +66,7 @@ func createApp() (*cobra.Command, *globalOptions) {
 	rootCommand.AddCommand(
 		download(&opts),
 		pull(&opts),
+		push(&opts),
 		inspectCmd(&opts),
 		loginCmd(&opts),
 		logoutCmd(&opts),
