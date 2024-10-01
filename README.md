@@ -5,9 +5,7 @@
 
 > [!IMPORTANT]
 >
-> **旧版本代码已不再支持新版的 manifest version，现已弃用**
->
-> **新的代码只是对 [containers/skopeo](https://github.com/containers/skopeo) 进行了简单封装**
+> **基于 [containers/skopeo](https://github.com/containers/skopeo) 进行了简单封装**
 >
 > **如果您需要功能全面的镜像下载工具，请参考 [containers/skopeo](https://github.com/containers/skopeo)**
 >
